@@ -4,7 +4,7 @@ export enum BlockType {
 }
 
 export type BlockValue = {
-  value: BlockType;
+  value: BlockType | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
   visible: boolean;
 };
 
