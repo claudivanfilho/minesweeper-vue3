@@ -1,5 +1,5 @@
 <template>
-  <div class="emoji-block">
+  <div class="emoji-block flex justify-center align-center">
     <EmojiSadIcon v-if="isLost" id="EmojiSadIcon" />
     <EmojiSmileIcon v-else-if="isRunning" id="EmojiSmileIcon" />
     <EmojiSunglassesIcon v-else-if="isCompleted" id="EmojiSunglassesIcon" />
@@ -37,9 +37,6 @@ export default defineComponent({
 .emoji-block {
   width: 30px;
   height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: #c0c0c0;
   box-sizing: border-box;
   border-width: 0 1px 1px 0;

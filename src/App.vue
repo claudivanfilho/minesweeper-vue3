@@ -21,4 +21,16 @@ export default defineComponent({
 .pointer {
   cursor: pointer;
 }
+.flex {
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
+}
+.align-center {
+  align-items: center;
+}
+.flex-column {
+  flex-direction: column;
+}
 </style>

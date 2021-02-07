@@ -1,15 +1,11 @@
 <template>
-  <div class="mine-field__wrapper">
+  <div class="flex flex-column">
     <div
-      class="mine-field__row"
+      class="flex"
       v-for="(row, rowIndex) in mineField"
       :key="`row${rowIndex}`"
     >
-      <div
-        class="mine-field__col"
-        v-for="(col, colIndex) in row"
-        :key="`col${colIndex}`"
-      >
+      <div v-for="(col, colIndex) in row" :key="`col${colIndex}`">
         <Block
           :value="col.value"
           :visible="col.visible"
@@ -77,13 +73,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style scoped>
-.mine-field__wrapper {
-  display: flex;
-  flex-direction: column;
-}
-.mine-field__row {
-  display: flex;
-}
-</style>

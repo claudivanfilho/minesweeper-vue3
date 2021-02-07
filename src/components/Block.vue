@@ -2,7 +2,7 @@
   <div>
     <div
       v-if="visible"
-      class="block block--visible"
+      class="flex align-center justify-center block block--visible"
       :class="(isBomb && 'block__bomb') || ''"
       :style="{
         color: fontColor
@@ -11,7 +11,11 @@
       <BombIcon v-if="isBomb" />
       <span v-else-if="!isEmpty">{{ value }}</span>
     </div>
-    <div v-else class="block block--hidden" @click="onClick"></div>
+    <div
+      v-else
+      class="flex align-center justify-center block block--hidden pointer"
+      @click="onClick"
+    ></div>
   </div>
 </template>
 
@@ -57,9 +61,6 @@ export default defineComponent({
 .block {
   width: 30px;
   height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-weight: 700;
 }
 .block--visible {
@@ -69,7 +70,6 @@ export default defineComponent({
   border: 1px solid #808080;
 }
 .block--hidden {
-  cursor: pointer;
   background: #c0c0c0;
   box-sizing: border-box;
   border-width: 0 1px 1px 0;

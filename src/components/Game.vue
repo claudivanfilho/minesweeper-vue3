@@ -1,9 +1,9 @@
 <template>
-  <div class="game__wrapper">
-    <div class="game__emoji-wrapper">
+  <div class="flex flex-column justify-center">
+    <div class="game__emoji-wrapper flex justify-center">
       <EmojiBlock :state="gameState" @click="onReset" class="pointer" />
     </div>
-    <div class="game__field-wrapper">
+    <div class="game__field-wrapper flex justify-center">
       <MineField
         :minesQuantity="6"
         :size="10"
@@ -12,6 +12,12 @@
         :state="gameState"
         :class="(isComplete && 'pointer-events-none') || ''"
       />
+    </div>
+    <div v-if="isComplete" class="flex justify-center">
+      <h2>Congratulations!</h2>
+    </div>
+    <div v-else-if="isLost" class="flex justify-center">
+      <h2>You lose!</h2>
     </div>
   </div>
 </template>
@@ -48,22 +54,15 @@ export default defineComponent({
   computed: {
     isComplete(): boolean {
       return this.gameState === GameState.COMPLETED;
+    },
+    isLost(): boolean {
+      return this.gameState === GameState.LOST;
     }
   }
 });
 </script>
 
 <style lang="scss">
-.game__wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.game__emoji-wrapper,
-.game__field-wrapper {
-  display: flex;
-  justify-content: center;
-}
 .game__field-wrapper {
   margin-top: 10px;
 }

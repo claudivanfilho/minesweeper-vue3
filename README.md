@@ -21,3 +21,5 @@ yarn test:unit
 ```
 
 ### Demo
+
+https://minesweeper-vue3.vercel.app/
